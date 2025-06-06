@@ -11,13 +11,43 @@ Este proyecto es un sistema completo para la gestión de citas médicas, compues
 - **SQLAlchemy** – ORM para interactuar con la base de datos.
 - **Pydantic** – Validación de datos.
 - **Uvicorn** – Servidor ASGI para ejecutar la aplicación.
+- **JWT** – tokens de autenticación.
 - **CORS Middleware** – Para permitir la comunicación con el frontend.
 
 ### Frontend
 - **HTML, CSS y JavaScript**
 - **Axios** – Para consumir la API.
 
-## **Endpoints**
+### Autenticación con JWT
+
+Se ha implementado un sistema seguro de autenticación basado en **tokens JWT** . Los endpoints protegidos requieren un token válido en el encabezado Authorization con el siguiente formato:
+
+1. :
+   ```bash
+   Authorization: Bearer <token>
+   
+### Autenticación con JWT
+
+- **POST /login :** – Autenticar usuario y obtener un token JWT.
+
+#### Ejemplo de Solicitud:
+  ```json
+  {
+    "username": "juan",
+    "password": "mi_contraseña_segura",
+  }
+  ```
+  #### Respuesta Exitosa:
+  ```json
+  {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx",
+    "token_type": "bearer"
+  }
+  ```
+
+## **Endpoints Protegidos**
+
+Todos los siguientes endpoints requieren autenticación JWT:
 
 ### **Usuarios**
 - **GET** `/usuarios`: Lista todos los usuarios.
@@ -54,7 +84,7 @@ Este proyecto es un sistema completo para la gestión de citas médicas, compues
 
 ### **Requisitos**
 - Python 3.7+
-- Dependencias: FastAPI, SQLAlchemy, Pydantic, Uvicorn
+- Dependencias: FastAPI, SQLAlchemy, Pydantic, Uvicorn, python-jose (para JWT)
 
 ### **Pasos para Ejecutar**
 
