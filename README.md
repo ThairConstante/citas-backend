@@ -106,8 +106,6 @@ Todos los siguientes endpoints requieren autenticación JWT:
 - Swagger UI: http://127.0.0.1:8000/docs
 - ReDoc: http://127.0.0.1:8000/redoc
 
-5. Accede al Frontend:
-Abre el archivo index.html en la carpeta frontend/ de este repositorio en tu navegador. Asegúrate de que la API esté ejecutándose en http://127.0.0.1:8000.
    
 ### **Ejemplo de Uso**
 
